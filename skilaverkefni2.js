@@ -68,7 +68,8 @@ Console.log(age);
 
 
 //6. Útskýrðu hvað eftirfarandi kóði gerir, hvað gera svigarnir?
- þettar er callback fallið. Hún biður í röð eftir allt kóðinn er keyrður og svo ef það er plás eftir hún er keyrð.
+þetta er IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE). þau eru keyrð þegar sem
+túlkur kemur yfir þá.
  
  
  
@@ -119,8 +120,24 @@ console.log(power(4,3,2)); // Gildið 2 gerir ekki neitt og í JS þú mátt setja me
 
 
 //11. Hvað er callback, komdu með lítið dæmi og útskýrðu.
+callback er þegar forrit er ekki að kalla fallið strax heldur biður fyrir rétti timi að gera þetta (venjulega þegar alla annar fallar sem eru ekki callbacks eru nú þegar keyrðu) 
 
 
+function rdy() { //fall sem sýna eitthvað text
+    alert('Hello from callback!');
+} 
+ 
+function run(callback) { //Eins og við vitum ekki hvað það er í raun þessi breytu, við tékkum hvaða tegund þessi breyta er, og þegar við vitum að þetta er ekki fall, þá við setum false gildi
+    if (typeof callback !== 'function') {
+         callback = false;
+    }
+ 
+    if (callback) {
+         callback();
+    }
+}
+ 
+run(rdy); //kalla á fall 
 
 //12. Hvað þýða eftirfarandi hugtök í JavaScript?
 
